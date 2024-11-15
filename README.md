@@ -1,5 +1,7 @@
 # Embedded Systems And Electronics
 
+A repo for documenting my electronics and embedded systems projects
+
 Simulated and recorded using: https://www.tinkercad.com/circuits
 
 ## Blinking Led Circuit
