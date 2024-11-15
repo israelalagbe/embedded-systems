@@ -1,6 +1,7 @@
 # Embedded Systems And Electronics
-A repo to keep records of my electronics and embedded system projects. Simulated and recorded using: https://www.tinkercad.com/circuits
+A repo to keep records of my electronics and embedded system projects. 
 
+Simulated and recorded using: https://www.tinkercad.com/circuits
 
 ## Blinking Led Circuit
 ![Blinking Led](<images/blinking-led.gif>)
