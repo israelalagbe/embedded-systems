@@ -1,5 +1,5 @@
 # Embedded Systems And Electronics
-A repo to keep records of my electronics and embedded system projects
+A repo to keep records of my electronics and embedded system projects. Simulated and recorded using: https://www.tinkercad.com/circuits
 
 
 ## Blinking Led Circuit
@@ -14,3 +14,4 @@ Components Used:
 - 100 ohm resistor
 - Wires
 - Green Led
+- Breadboard
