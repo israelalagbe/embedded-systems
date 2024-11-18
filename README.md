@@ -11,9 +11,4 @@ Code: [blinking-led.cpp](<blinking-led.cpp>)
 
 Programming Language: C++
 
-Components Used:
-- Arduino Uno R3
-- 100 ohm resistor
-- Wires
-- Green Led
-- Breadboard
+Components Used: Arduino Uno R3, 100 ohm resistor, Wires, Green Led, Breadboard
