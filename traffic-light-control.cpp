@@ -20,9 +20,9 @@ void setup()
 void loop()
 {
   turnOnLed(redLed);
-  delay(3000); 
+  delay(timeout); 
   turnOnLed(yellowLed);
-  delay(3000);
+  delay(timeout);
   turnOnLed(greenLed);
-  delay(3000);
+  delay(timeout);
 }
