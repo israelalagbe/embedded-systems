@@ -12,3 +12,12 @@ Code: [blinking-led.cpp](<blinking-led.cpp>)
 Programming Language: C++
 
 Components Used: Arduino Uno R3, 100 ohm resistor, Wires, Green Led, Breadboard
+
+## Traffic Light Control Circuit
+![Blinking Led](<images/traffic-light-control.gif>)
+
+Code: [blinking-led.cpp](<traffic-light-control.cpp>)
+
+Programming Language: C++
+
+Components Used: Arduino Uno R3, resistor, Wires, LEDs
