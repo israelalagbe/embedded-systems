@@ -20,4 +20,4 @@ Code: [traffic-light-control.cpp](<traffic-light-control.cpp>)
 
 Programming Language: C++
 
-Components Used: Arduino Uno R3, resistor, Wires, LEDs
+Components Used: Arduino Uno R3, resistor (100 ohm x 3), Wires, LEDs
