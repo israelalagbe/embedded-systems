@@ -7,6 +7,8 @@ Simulated and recorded using: https://www.tinkercad.com/circuits
 ## Blinking Led Circuit
 ![Blinking Led](<images/blinking-led.gif>)
 
+https://github.com/user-attachments/assets/f4a8e4bd-f03b-49bc-bb75-4744072c5f0a
+
 Code: [blinking-led.cpp](<blinking-led.cpp>)
 
 Programming Language: C++
