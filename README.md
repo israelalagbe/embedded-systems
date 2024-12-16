@@ -18,6 +18,8 @@ Components Used: Arduino Uno R3, 100 ohm resistor, Wires, Green Led, Breadboard
 ## Traffic Light Control Circuit
 ![Blinking Led](<images/traffic-light-control.gif>)
 
+https://github.com/user-attachments/assets/34a84fc3-a00e-4432-95cd-cc060c3e8e4d
+
 Code: [traffic-light-control.cpp](<traffic-light-control.cpp>)
 
 Programming Language: C++
