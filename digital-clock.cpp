@@ -3,49 +3,99 @@
 #include <LiquidCrystal_I2C.h>
 
 class Clock {
-  bool noon = false;
+  bool noon = false;  // false = AM, true = PM
   int hours = 10;
   int minutes = 0;
   int seconds = 0;
+  int day = 1;
+  int month = 1;
+  int year = 2025;
 
+  // Days in each month (non-leap year)
+  int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+  bool isLeapYear() {
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+  }
+
+  void updateLeapYear() {
+    daysInMonth[1] = isLeapYear() ? 29 : 28;
+  }
 
 private:
   void tickHour() {
-    if (hours >= 12) {
+    hours += 1;
+    if (hours > 12) {
       hours = 1;
     }
-
-    hours += 1;
+    if (hours == 12) {
+      noon = !noon;  // Toggle AM/PM at 12
+    }
+    if (hours == 12 && !noon) {
+      tickDay();  // Advance day after 11:59 PM -> 12:00 AM
+    }
   }
 
   void tickMinute() {
+    minutes += 1;
     if (minutes >= 60) {
       minutes = 0;
       tickHour();
     }
-    minutes += 1;
   }
 
   void tickSecond() {
+    seconds += 1;
     if (seconds >= 60) {
       seconds = 0;
       tickMinute();
     }
-    seconds++;
+  }
+
+  void tickDay() {
+    day += 1;
+    if (day > daysInMonth[month - 1]) {
+      day = 1;
+      tickMonth();
+    }
+  }
+
+  void tickMonth() {
+    month += 1;
+    if (month > 12) {
+      month = 1;
+      tickYear();
+    }
+  }
+
+  void tickYear() {
+    year += 1;
+    updateLeapYear(); 
   }
 
 public:
   Clock() {
+    updateLeapYear(); 
   }
 
-  tick() {
+  void tick() {
     tickSecond();
   }
 
+  String getDate() {
+    char dateBuffer[30];
+    sprintf(dateBuffer, "%02d/%02d/%04d", day, month, year);
+    return String(dateBuffer);
+  }
+
   String getTime() {
-    char buffer[20];
-    sprintf(buffer, "%02d:%02d:%02d %s", hours, minutes, seconds, noon ? "PM" : "AM");
-    return String(buffer);
+    char timeBuffer[20];
+    sprintf(timeBuffer, "%02d:%02d:%02d %s", hours, minutes, seconds, noon ? "PM" : "AM");
+    return String(timeBuffer);
+  }
+
+  String getDateTime() {
+    return getDate() + " " + getTime();
   }
 };
 
@@ -65,7 +115,10 @@ void setup() {
 void loop() {
   lcd.clear();
   // row,column
-  lcd.setCursor(2, 1);
+  lcd.setCursor(0, 0);
+  lcd.print(clock.getDate());
+
+  lcd.setCursor(5, 1);
   lcd.print(clock.getTime());
 
   clock.tick();
