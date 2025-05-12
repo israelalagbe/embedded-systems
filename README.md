@@ -2,7 +2,7 @@
 
 A repo for documenting my electronics and embedded systems projects
 
-## Digital Click
+## Digital Clock
 
 
 Code: [digital-clock.cpp](<digital-clock.cpp>)
