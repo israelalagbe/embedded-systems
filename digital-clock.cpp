@@ -3,12 +3,13 @@
 #include <LiquidCrystal_I2C.h>
 
 class Clock {
+private:
   bool noon = false;  // false = AM, true = PM
   int hours = 10;
   int minutes = 0;
   int seconds = 0;
-  int day = 1;
-  int month = 1;
+  int day = 18;
+  int month = 5;
   int year = 2025;
 
   // Days in each month (non-leap year)
@@ -22,7 +23,6 @@ class Clock {
     daysInMonth[1] = isLeapYear() ? 29 : 28;
   }
 
-private:
   void tickHour() {
     hours += 1;
     if (hours > 12) {
@@ -97,6 +97,20 @@ public:
   String getDateTime() {
     return getDate() + " " + getTime();
   }
+
+  String getTimeOfDay() {
+    int hour24 = hours % 12 + (noon ? 12 : 0); // Convert to 24-hour format
+
+    if (hour24 >= 5 && hour24 < 12) {
+      return "morning";
+    } else if (hour24 >= 12 && hour24 < 17) {
+      return "afternoon";
+    } else if (hour24 >= 17 && hour24 < 21) {
+      return "evening";
+    } else {
+      return "night";
+    }
+  }
 };
 
 // Set the LCD address (usually 0x27 or 0x3F) and dimensions (16 rows, 2 columns)
@@ -109,6 +123,12 @@ void setup() {
 
   lcd.init();
   lcd.backlight();
+
+  lcd.setCursor(0, 0);
+  lcd.print("Good " + clock.getTimeOfDay() + ", ");
+  lcd.setCursor(10, 1);
+  lcd.print("Israel");
+  delay(3000);
 }
 
 
