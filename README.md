@@ -2,6 +2,8 @@
 
 ## Digital Clock
 
+https://github.com/user-attachments/assets/b110d612-d803-4eee-9056-3dde3a57c846
+
 Code: [digital-clock.cpp](<digital-clock.cpp>)
 
 Programming Language: C++
