@@ -5,6 +5,9 @@
 class Clock {
 private:
   bool noon = false;  // false = AM, true = PM
+
+  // I'm currently using a static date, but it can be replaced with a real-time clock (RTC) module 
+  // that includes a CMOS battery to maintain accurate date and time even when the device is powered off
   int hours = 10;
   int minutes = 0;
   int seconds = 0;
