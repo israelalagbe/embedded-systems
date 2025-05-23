@@ -1,9 +1,6 @@
 # Embedded Systems And Electronics
 
-A repo for documenting my electronics and embedded systems projects
-
 ## Digital Clock
-
 
 Code: [digital-clock.cpp](<digital-clock.cpp>)
 
