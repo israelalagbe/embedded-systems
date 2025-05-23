@@ -8,7 +8,7 @@ Code: [digital-clock.cpp](<digital-clock.cpp>)
 
 Programming Language: C++
 
-Components Used: Arduino, i2c interface
+Components Used: Arduino, i2c interface, LCD display
 
 ## Traffic Light Control Circuit
 
