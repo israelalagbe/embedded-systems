@@ -1,9 +1,25 @@
 #include <Arduino.h>
+#include <Pin.h>
+#include <TrafficLight.h>
 
-void setup() {
-  // put your setup code here, to run once:
+
+const int redLed = 6;
+const int yellowLed = 5;
+const int greenLed = 4;
+
+TrafficLight trafficLight(Pin(redLed), Pin(yellowLed), Pin(greenLed));
+
+const unsigned long int timeout = 3000; //  3 seconds(s)
+
+void setup()
+{
+  // pinMode(redLed, OUTPUT);
+  // pinMode(yellowLed, OUTPUT);
+  // pinMode(greenLed, OUTPUT);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
+  delay(timeout); 
+  trafficLight.nextLight();
 }
