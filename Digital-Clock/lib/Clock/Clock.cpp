@@ -1,8 +1,25 @@
 #include "Clock.h"
+#include "CompileTime.h"
 
 Clock::Clock()
-  : noon(false), hours(10), minutes(0), seconds(0), day(18), month(5), year(2025), daysInMonth{31,28,31,30,31,30,31,31,30,31,30,31}
+  : noon(false), hours(0), minutes(0), seconds(0), day(1), month(1), year(1970), daysInMonth{31,28,31,30,31,30,31,31,30,31,30,31}
 {
+  // Use compile time as default time
+  CompileTime compileTime = getCompileTime();
+
+  day = compileTime.day;
+  month = compileTime.month;
+  year = compileTime.year;
+
+  minutes = compileTime.minute;
+  seconds = compileTime.second;
+
+  int compileHour = compileTime.hour;
+  if (compileHour == 0) { hours = 12; noon = false; }
+  else if (compileHour == 12) { hours = 12; noon = true; }
+  else if (compileHour > 12) { hours = compileHour - 12; noon = true; }
+  else { hours = compileHour; noon = false; }
+
   updateLeapYear();
 }
 
