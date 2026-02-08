@@ -2,24 +2,25 @@
 #include <Pin.h>
 #include <TrafficLight.h>
 
-
 const int redLed = 6;
 const int yellowLed = 5;
 const int greenLed = 4;
 
-TrafficLight trafficLight(Pin(redLed), Pin(yellowLed), Pin(greenLed));
+Pin red(redLed, OUTPUT, "RED");
+Pin yellow(yellowLed, OUTPUT, "YELLOW");
+Pin green(greenLed, OUTPUT, "GREEN");
 
-const unsigned long int timeout = 3000; //  3 seconds(s)
+TrafficLight trafficLight(red, yellow, green);
+
+const unsigned long int timeout = 10000; //  10 seconds(s)
 
 void setup()
 {
-  // pinMode(redLed, OUTPUT);
-  // pinMode(yellowLed, OUTPUT);
-  // pinMode(greenLed, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop()
 {
-  delay(timeout); 
+  delay(timeout);
   trafficLight.nextLight();
 }

@@ -1,13 +1,20 @@
 #pragma once
 
-#include "Pin.h";
+#include "Pin.h"
+
+struct PinNode{
+  Pin * pin;
+  PinNode* next;
+};
+
 
 class TrafficLight {
   private:
-    const Pin pins[3];
-    int index = 0;
-    const int maxIndex = 3;
+    PinNode redNode;
+    PinNode yellowNode;
+    PinNode greenNode;
+    PinNode * cursor;
   public:
-    TrafficLight(Pin redPin, Pin bluePin, Pin greenPin);
+    TrafficLight(Pin &red, Pin &yellow, Pin &green);
     void nextLight();
 };
